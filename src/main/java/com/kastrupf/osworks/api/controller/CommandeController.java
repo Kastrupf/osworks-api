@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kastrupf.osworks.api.representationmodel.CommandeRepresentationModel;
 import com.kastrupf.osworks.domain.model.Commande;
 import com.kastrupf.osworks.domain.repository.CommandeRepository;
 import com.kastrupf.osworks.domain.service.GestionCommande;
@@ -30,6 +32,9 @@ public class CommandeController {
 	@Autowired
 	private CommandeRepository commandeRepository;
 	
+	@Autowired
+	private ModelMapper modelMapper;
+	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Commande creer(@Valid @RequestBody Commande commande) {
@@ -42,11 +47,12 @@ public class CommandeController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Commande> listerParId(@PathVariable Long id) {
+	public ResponseEntity<CommandeRepresentationModel> listerParId(@PathVariable Long id) {
 		Optional<Commande> commande= commandeRepository.findById(id);	
 		
 		if (commande.isPresent()) {
-			return ResponseEntity.ok(commande.get());
+			CommandeRepresentationModel commandeRepresentationModel = modelMapper.map(commande.get(), CommandeRepresentationModel.class);
+			return ResponseEntity.ok(commandeRepresentationModel);
 		}
 					
 		return ResponseEntity.notFound().build();
