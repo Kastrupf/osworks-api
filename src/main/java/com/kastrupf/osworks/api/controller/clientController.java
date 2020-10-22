@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kastrupf.osworks.domain.model.Client;
 import com.kastrupf.osworks.domain.repository.ClientRepository;
+import com.kastrupf.osworks.domain.service.RegistreClientService;
 
 @RestController
 @RequestMapping("/clients")
@@ -27,6 +28,9 @@ public class ClientController {
 	
 	@Autowired
 	private ClientRepository clientRepository; 
+	
+	@Autowired
+	private RegistreClientService registreClient; 
 	
 	@GetMapping
 	public List<Client> lister() {
@@ -47,7 +51,7 @@ public class ClientController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Client ajouter(@Valid @RequestBody Client client) {
-		return clientRepository.save(client);	
+		return registreClient.save(client);	
 	}
 	
 	@PutMapping("/{id}")
@@ -57,7 +61,7 @@ public class ClientController {
 		}
 		
 		client.setId(id);
-		client = clientRepository.save(client);
+		client = registreClient.save(client);	
 		
 		return ResponseEntity.ok(client);
 	}
@@ -68,7 +72,7 @@ public class ClientController {
 			return ResponseEntity.notFound().build();
 		}
 		
-		clientRepository.deleteById(id);
+		registreClient.supprimer(id);
 		
 		return ResponseEntity.noContent().build();
 	}
