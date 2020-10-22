@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Comentaire {
+public class Commentaire {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,7 +59,7 @@ public class Comentaire {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Comentaire other = (Comentaire) obj;
+		Commentaire other = (Commentaire) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
