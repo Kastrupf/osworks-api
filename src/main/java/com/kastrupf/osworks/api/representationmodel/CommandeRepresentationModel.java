@@ -8,7 +8,7 @@ import com.kastrupf.osworks.domain.model.StatusCommande;
 public class CommandeRepresentationModel {
 	
 	private Long id;
-	private String nomClient;
+	private ClientResumeModel client;
 	private String description;
 	private BigDecimal prix;
 	private StatusCommande status;
@@ -20,12 +20,7 @@ public class CommandeRepresentationModel {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getNomClient() {
-		return nomClient;
-	}
-	public void setNomClient(String nomClient) {
-		this.nomClient = nomClient;
-	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -55,5 +50,11 @@ public class CommandeRepresentationModel {
 	}
 	public void setDateFermeture(OffsetDateTime dateFermeture) {
 		this.dateFermeture = dateFermeture;
+	}
+	public ClientResumeModel getClient() {
+		return client;
+	}
+	public void setClient(ClientResumeModel client) {
+		this.client = client;
 	}
 }
