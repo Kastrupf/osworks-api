@@ -14,7 +14,7 @@ import com.kastrupf.osworks.domain.ValidationGroups;
 @Entity
 public class Client {
 	
-	@NotNull(groups = ValidationGroups.ClientId.class)
+	//@NotNull(groups = ValidationGroups.ClientId.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

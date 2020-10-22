@@ -30,9 +30,9 @@ public class Commande {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Valid
-	@ConvertGroup(from = Default.class, to = ValidationGroups.ClientId.class)
-	@NotNull
+	//@Valid
+	//@ConvertGroup(from = Default.class, to = ValidationGroups.ClientId.class)
+	//@NotNull
 	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private Client client;
@@ -43,14 +43,14 @@ public class Commande {
 	@NotNull
 	private BigDecimal prix;
 	
-	@JsonProperty(access = Access.READ_ONLY)
+	//@JsonProperty(access = Access.READ_ONLY)
 	@Enumerated(EnumType.STRING)
 	private StatusCommande status;
 	
 	@JsonProperty(access = Access.READ_ONLY)
 	private OffsetDateTime dateOuverture;
 	
-	@JsonProperty(access = Access.READ_ONLY)
+	//@JsonProperty(access = Access.READ_ONLY)
 	private OffsetDateTime dateFermeture;
 	
 	public Long getId() {
