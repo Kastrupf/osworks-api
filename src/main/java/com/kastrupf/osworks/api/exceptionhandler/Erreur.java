@@ -1,0 +1,61 @@
+package com.kastrupf.osworks.api.exceptionhandler;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+public class Erreur {
+	
+	private Integer status;
+	private LocalDateTime dateHeure;
+	private String titre;
+	private List<Champ> champs;
+	
+	public static class Champ {
+		private String nom;
+		private String message;
+		
+		public Champ(String nom, String message) {
+			super();
+			this.nom = nom;
+			this.message = message;
+		}
+		public String getNom() {
+			return nom;
+		}
+		public void setNom(String nom) {
+			this.nom = nom;
+		}
+		public String getMessage() {
+			return message;
+		}
+		public void setMessage(String message) {
+			this.message = message;
+		}
+	}
+			
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+	public LocalDateTime getDateHeure() {
+		return dateHeure;
+	}
+	public void setDateHeure(LocalDateTime dateHeure) {
+		this.dateHeure = dateHeure;
+	}
+	public String getTitre() {
+		return titre;
+	}
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+	public List<Champ> getChamps() {
+		return champs;
+	}
+	public void setChamps(List<Champ> champs) {
+		this.champs = champs;
+	}
+	
+}
