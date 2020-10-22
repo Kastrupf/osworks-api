@@ -1,7 +1,7 @@
 package com.kastrupf.osworks.domain.model;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -48,10 +48,10 @@ public class Commande {
 	private StatusCommande status;
 	
 	@JsonProperty(access = Access.READ_ONLY)
-	private LocalDateTime dateOuverture;
+	private OffsetDateTime dateOuverture;
 	
 	@JsonProperty(access = Access.READ_ONLY)
-	private LocalDateTime dateFermeture;
+	private OffsetDateTime dateFermeture;
 	
 	public Long getId() {
 		return id;
@@ -83,16 +83,16 @@ public class Commande {
 	public void setStatus(StatusCommande status) {
 		this.status = status;
 	}
-	public LocalDateTime getDateOuverture() {
+	public OffsetDateTime getDateOuverture() {
 		return dateOuverture;
 	}
-	public void setDateOuverture(LocalDateTime dateOuverture) {
+	public void setDateOuverture(OffsetDateTime dateOuverture) {
 		this.dateOuverture = dateOuverture;
 	}
-	public LocalDateTime getDateFermeture() {
+	public OffsetDateTime getDateFermeture() {
 		return dateFermeture;
 	}
-	public void setDateFermeture(LocalDateTime dateFermeture) {
+	public void setDateFermeture(OffsetDateTime dateFermeture) {
 		this.dateFermeture = dateFermeture;
 	}
 	@Override

@@ -1,6 +1,6 @@
 package com.kastrupf.osworks.api.exceptionhandler;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class Erreur {
 	
 	private Integer status;
-	private LocalDateTime dateHeure;
+	private OffsetDateTime dateHeure;
 	private String titre;
 	private List<Champ> champs;
 	
@@ -43,10 +43,10 @@ public class Erreur {
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
-	public LocalDateTime getDateHeure() {
+	public OffsetDateTime getDateHeure() {
 		return dateHeure;
 	}
-	public void setDateHeure(LocalDateTime dateHeure) {
+	public void setDateHeure(OffsetDateTime dateHeure) {
 		this.dateHeure = dateHeure;
 	}
 	public String getTitre() {

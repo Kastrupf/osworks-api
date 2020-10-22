@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kastrupf.osworks.domain.model.Client;
 import com.kastrupf.osworks.domain.model.Commande;
 import com.kastrupf.osworks.domain.repository.CommandeRepository;
 import com.kastrupf.osworks.domain.service.GestionCommande;

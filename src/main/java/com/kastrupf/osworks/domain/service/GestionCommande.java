@@ -1,6 +1,6 @@
 package com.kastrupf.osworks.domain.service;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +28,7 @@ public class GestionCommande {
 		
 		commande.setClient(client);
 		commande.setStatus(StatusCommande.OUVERTE);
-		commande.setDateOuverture(LocalDateTime.now());
+		commande.setDateOuverture(OffsetDateTime.now());
 		
 		return commandeRepository.save(commande);
 	}

@@ -1,6 +1,6 @@
 package com.kastrupf.osworks.api.exceptionhandler;
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 
 import org.springframework.http.HttpHeaders;
@@ -27,7 +27,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		var erreur = new Erreur();
 		erreur.setStatus(status.value());
 		erreur.setTitre(ex.getMessage());
-		erreur.setDateHeure(LocalDateTime.now());
+		erreur.setDateHeure(OffsetDateTime.now());
 		
 		return handleExceptionInternal (ex, erreur, new HttpHeaders(), status, request);
 			
@@ -49,7 +49,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		erreur.setStatus(status.value());
 		erreur.setTitre("Un ou plusieurs champs ne sont pas valides. "
 				+ "Remplissez correctement et réessayez.");
-		erreur.setDateHeure(LocalDateTime.now());
+		erreur.setDateHeure(OffsetDateTime.now());
 		erreur.setChamps(champs);
 					
 		return super.handleExceptionInternal(ex, erreur, headers, status, request);
