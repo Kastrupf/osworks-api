@@ -2,6 +2,7 @@ package com.kastrupf.osworks.api.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -37,13 +38,13 @@ public class CommandeController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Commande creer(@Valid @RequestBody Commande commande) {
-		return gestionCommande.creer(commande);
+	public CommandeRepresentationModel creer(@Valid @RequestBody Commande commande) {
+		return toModel(gestionCommande.creer(commande));
 	}
 	
 	@GetMapping
-	public List<Commande> lister() {
-		return commandeRepository.findAll();	
+	public List<CommandeRepresentationModel> lister() {
+		return toCollectionModel(commandeRepository.findAll());	
 	}
 	
 	@GetMapping("/{id}")
@@ -51,15 +52,26 @@ public class CommandeController {
 		Optional<Commande> commande= commandeRepository.findById(id);	
 		
 		if (commande.isPresent()) {
-			CommandeRepresentationModel commandeRepresentationModel = modelMapper.map(commande.get(), CommandeRepresentationModel.class);
+			CommandeRepresentationModel commandeRepresentationModel = toModel(commande.get());
 			return ResponseEntity.ok(commandeRepresentationModel);
 		}
 					
 		return ResponseEntity.notFound().build();
 	}
 	
+	private CommandeRepresentationModel toModel(Commande commande) {
+		return modelMapper.map(commande, CommandeRepresentationModel.class);
+	}
+	
+	private List<CommandeRepresentationModel> toCollectionModel(List<Commande> commandes) {
+		return commandes.stream()
+				.map(commande -> toModel(commande))
+				.collect(Collectors.toList());
+		
+	}
 	
 	
 	
 	
-}
+}	
+

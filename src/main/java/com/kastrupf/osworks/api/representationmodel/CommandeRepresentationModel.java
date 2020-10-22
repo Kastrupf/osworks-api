@@ -7,18 +7,18 @@ import com.kastrupf.osworks.domain.model.StatusCommande;
 
 public class CommandeRepresentationModel {
 	
-	private Long reference;
+	private Long id;
 	private String nomClient;
 	private String description;
 	private BigDecimal prix;
 	private StatusCommande status;
 	private OffsetDateTime dateOuverture;
 	private OffsetDateTime dateFermeture;
-	public Long getReference() {
-		return reference;
+	public Long getId() {
+		return id;
 	}
-	public void setReference(Long reference) {
-		this.reference = reference;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getNomClient() {
 		return nomClient;
