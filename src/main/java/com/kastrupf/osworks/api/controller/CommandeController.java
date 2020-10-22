@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kastrupf.osworks.api.representationmodel.CommandeInput;
 import com.kastrupf.osworks.api.representationmodel.CommandeRepresentationModel;
 import com.kastrupf.osworks.domain.model.Commande;
 import com.kastrupf.osworks.domain.repository.CommandeRepository;
@@ -38,7 +39,9 @@ public class CommandeController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public CommandeRepresentationModel creer(@Valid @RequestBody Commande commande) {
+	public CommandeRepresentationModel creer(@Valid @RequestBody CommandeInput commandeInput) {
+		Commande commande = toEntity(commandeInput);
+		
 		return toModel(gestionCommande.creer(commande));
 	}
 	
@@ -70,8 +73,8 @@ public class CommandeController {
 		
 	}
 	
-	
-	
-	
+	private Commande toEntity(CommandeInput commandeInput) {
+		return modelMapper.map(commandeInput, Commande.class);
+	}
 }	
 
