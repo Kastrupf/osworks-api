@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class Commande {
 	
@@ -26,10 +29,14 @@ public class Commande {
 	private String description;
 	private BigDecimal prix;
 	
+	@JsonProperty(access = Access.READ_ONLY)
 	@Enumerated(EnumType.STRING)
 	private StatusCommande status;
 	
+	@JsonProperty(access = Access.READ_ONLY)
 	private LocalDateTime dateOuverture;
+	
+	@JsonProperty(access = Access.READ_ONLY)
 	private LocalDateTime dateFermeture;
 	
 	public Long getId() {
