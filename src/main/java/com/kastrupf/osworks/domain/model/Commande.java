@@ -11,9 +11,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.groups.ConvertGroup;
+import javax.validation.groups.Default;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
+import com.kastrupf.osworks.domain.ValidationGroups;
+
 
 @Entity
 public class Commande {
@@ -22,11 +30,17 @@ public class Commande {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Valid
+	@ConvertGroup(from = Default.class, to = ValidationGroups.ClientId.class)
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private Client client;
 	
+	@NotBlank
 	private String description;
+	
+	@NotNull
 	private BigDecimal prix;
 	
 	@JsonProperty(access = Access.READ_ONLY)

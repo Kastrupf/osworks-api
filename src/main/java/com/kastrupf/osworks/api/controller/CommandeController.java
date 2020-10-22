@@ -1,5 +1,7 @@
 package com.kastrupf.osworks.api.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +22,7 @@ public class CommandeController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Commande creer(@RequestBody Commande commande) {
+	public Commande creer(@Valid @RequestBody Commande commande) {
 		return gestionCommande.creer(commande);
 	}
 }
