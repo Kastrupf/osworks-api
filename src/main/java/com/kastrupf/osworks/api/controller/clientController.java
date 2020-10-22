@@ -3,6 +3,8 @@ package com.kastrupf.osworks.api.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,13 +46,12 @@ public class ClientController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Client ajouter(@RequestBody Client client) {
+	public Client ajouter(@Valid @RequestBody Client client) {
 		return clientRepository.save(client);	
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Client> mettreAJourLeClient(@PathVariable Long id, @RequestBody Client client) {
-		
+	public ResponseEntity<Client> mettreAJourLeClient(@Valid @PathVariable Long id, @RequestBody Client client) {
 		if (!clientRepository.existsById(id)) {
 			return ResponseEntity.notFound().build();
 		}
@@ -63,7 +64,6 @@ public class ClientController {
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> supprimer(@PathVariable Long id) {
-	
 		if (!clientRepository.existsById(id)) {
 			return ResponseEntity.notFound().build();
 		}
@@ -71,10 +71,5 @@ public class ClientController {
 		clientRepository.deleteById(id);
 		
 		return ResponseEntity.noContent().build();
-		
-		
 	}
-	
-	
-	
 }
