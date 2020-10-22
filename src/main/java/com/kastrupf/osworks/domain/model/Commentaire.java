@@ -19,7 +19,7 @@ public class Commentaire {
 	private Commande commande;
 	
 	private String description;
-	private OffsetDateTime dateEmission;
+	private OffsetDateTime date;
 	public Long getId() {
 		return id;
 	}
@@ -38,11 +38,11 @@ public class Commentaire {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public OffsetDateTime getDateEmission() {
-		return dateEmission;
+	public OffsetDateTime getDate() {
+		return date;
 	}
-	public void setDateEmission(OffsetDateTime dateEmission) {
-		this.dateEmission = dateEmission;
+	public void setDate(OffsetDateTime date) {
+		this.date = date;
 	}
 	@Override
 	public int hashCode() {
