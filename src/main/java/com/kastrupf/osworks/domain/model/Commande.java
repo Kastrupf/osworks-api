@@ -133,7 +133,7 @@ public class Commande {
 	}
 	
 	public boolean peutEtreFerme() {
-		return (!StatusCommande.OUVERT.equals(getStatus()));
+		return StatusCommande.OUVERT.equals(getStatus());
 	}
 	
 	public boolean nePeutPasEtreFerme() {
