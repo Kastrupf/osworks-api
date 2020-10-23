@@ -22,6 +22,7 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+import com.kastrupf.osworks.domain.exception.DomainException;
 
 //import com.kastrupf.osworks.domain.ValidationGroups;
 
@@ -129,5 +130,22 @@ public class Commande {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+	
+	public boolean peutEtreFerme() {
+		return (!StatusCommande.OUVERT.equals(getStatus()));
+	}
+	
+	public boolean nePeutPasEtreFerme() {
+		return !peutEtreFerme();
+	}
+		
+	public void fermer() {
+		if (nePeutPasEtreFerme()) {
+			throw new DomainException("La commande ne peut pas etre fermée.");
+		}
+			
+		setStatus(StatusCommande.FERME);
+		setDateFermeture(OffsetDateTime.now());
 	}
 }

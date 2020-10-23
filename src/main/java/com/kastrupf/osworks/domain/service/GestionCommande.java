@@ -33,15 +33,22 @@ public class GestionCommande {
 				.orElseThrow(() -> new DomainException("Client non trouvé."));
 		
 		commande.setClient(client);
-		commande.setStatus(StatusCommande.OUVERTE);
+		commande.setStatus(StatusCommande.OUVERT);
 		commande.setDateOuverture(OffsetDateTime.now());
 		
 		return commandeRepository.save(commande);
 	}
 	
+	public void fermerCommande(Long commandeId) {
+		Commande commande = rechercher(commandeId);
+		
+		commande.fermer();
+		
+		commandeRepository.save(commande);
+	}
+				
 	public Commentaire ajouterCommentaire(Long commandeId, String description) {
-		Commande commande = commandeRepository.findById(commandeId)
-				.orElseThrow(() -> new EntitieNonTrouveeException("Commande non trouvée."));
+		Commande commande = rechercher(commandeId);
 		
 		Commentaire commentaire = new Commentaire();
 		commentaire.setDate(OffsetDateTime.now());
@@ -49,5 +56,10 @@ public class GestionCommande {
 		commentaire.setCommande(commande);
 		
 		return commentaireRepository.save(commentaire);
+	}
+	
+	private Commande rechercher(Long commandeId) {
+		return commandeRepository.findById(commandeId)
+				.orElseThrow(() -> new EntitieNonTrouveeException("Commande non trouvée."));
 	}
 }
