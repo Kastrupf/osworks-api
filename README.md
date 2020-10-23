@@ -27,15 +27,15 @@
 
 Ce projet a été développé avec les technologies suivantes:
 
-- [Spring](spring.io)
-  - [Spring Framework](spring.io/projects/spring-framework/)
-  - [Spring Data JPA](spring.io/projects/spring-data-jpa/)
-  - [Spring Boot](spring.io/projects/spring-boot/)
+- [Spring](https://spring.io/)
+  - [Spring Framework](https://spring.io/projects/spring-framework/)
+  - [Spring Data JPA](https://spring.io/projects/spring-data-jpa/)
+  - [Spring Boot](https://spring.io/projects/spring-boot/)
 
-- [Jakarta Persistence](jakarta.ee/projects/)
-- [Flyway](flywaydb.org)
-- [Insomnia](insomnia.rest/download/)
-- [MySQL](mysql.com/)
+- [Jakarta Persistence](https://jakarta.ee/projects/)
+- [Flyway](https://flywaydb.org/)
+- [Insomnia](https://insomnia.rest/download/)
+- [MySQL](https://www.mysql.com/)
   
 
 ## 💻 Projet
@@ -53,12 +53,12 @@ Ce projet a été développé avec les technologies suivantes:
 
 Pour développer des applications serveur avec Java, vous avez besoin d'installer le [JDK](jdk.java.net/).
 
-Pour le développement d'API:  [Spring Tool Suite](spring.io/tools/) ou IDE de votre choix, l'importation du fichier généré par le service [Spring initializr](start.spring.io/).
+Pour le développement d'API:  [Spring Tool Suite](https://spring.io/tools/) ou IDE de votre choix, l'importation du fichier généré par le service [Spring initializr](https://start.spring.io/).
 
-Pour tester les requêtes / réponses générées par l'API: [Postman](getpostman.com/downloads/) ou [Insominia](insomnia.rest/download/).
+Pour tester les requêtes / réponses générées par l'API: [Postman](https://www.postman.com/downloads/) ou [Insominia](https://insomnia.rest/download/).
 
-Pour la persistance des données: [MySQL Server](dev.mysql.com/downloads/mysql/).
-Pour l'administration du serveur MySQL: e [MySQL Workbench](dev.mysql.com/downloads/workbench/).
+Pour la persistance des données: [MySQL Server](https://dev.mysql.com/downloads/mysql/).
+Pour l'administration du serveur MySQL: e [MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
 D'abord, il faut configurer la connexion avec la base de données. Properties se trouve dans le fichier : /src/main/resources/application.properties.
 Par default cette application utilise database(name: osworks, user: root, password: root).
