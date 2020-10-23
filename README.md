@@ -51,7 +51,7 @@ Ce projet a été développé avec les technologies suivantes:
 
 ## ⚡ Environnement
 
-Pour développer des applications serveur avec Java, vous avez besoin d'installer le [JDK](jdk.java.net/).
+Pour développer des applications serveur avec Java, vous avez besoin d'installer le [OpenJDK](https://jdk.java.net/).
 
 Pour le développement d'API:  [Spring Tool Suite](https://spring.io/tools/) ou IDE de votre choix, l'importation du fichier généré par le service [Spring initializr](https://start.spring.io/).
 
