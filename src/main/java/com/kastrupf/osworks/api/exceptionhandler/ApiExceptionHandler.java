@@ -15,11 +15,24 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.kastrupf.osworks.domain.exception.DomainException;
+import com.kastrupf.osworks.domain.exception.EntitieNonTrouveeException;
 
 
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
-	
+		
+	@ExceptionHandler(EntitieNonTrouveeException.class)
+	public ResponseEntity<Object> handleEntitieNonTrouveeException(DomainException ex, WebRequest request) {
+		var status = HttpStatus.NOT_FOUND;
+		
+		var erreur = new Erreur();
+		erreur.setStatus(status.value());
+		erreur.setTitre(ex.getMessage());
+		erreur.setDateHeure(OffsetDateTime.now());
+		
+		return handleExceptionInternal (ex, erreur, new HttpHeaders(), status, request);
+	}
+		
 	@ExceptionHandler(DomainException.class)
 	public ResponseEntity<Object> handleDomain(DomainException ex, WebRequest request) {
 		var status = HttpStatus.BAD_REQUEST;
@@ -30,7 +43,6 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		erreur.setDateHeure(OffsetDateTime.now());
 		
 		return handleExceptionInternal (ex, erreur, new HttpHeaders(), status, request);
-			
 	}
 	
 	@Override

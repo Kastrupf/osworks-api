@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kastrupf.osworks.domain.exception.DomainException;
+import com.kastrupf.osworks.domain.exception.EntitieNonTrouveeException;
 import com.kastrupf.osworks.domain.model.Client;
 import com.kastrupf.osworks.domain.model.Commande;
 import com.kastrupf.osworks.domain.model.Commentaire;
@@ -40,7 +41,7 @@ public class GestionCommande {
 	
 	public Commentaire ajouterCommentaire(Long commandeId, String description) {
 		Commande commande = commandeRepository.findById(commandeId)
-				.orElseThrow(() -> new DomainException("Commande non trouvée."));
+				.orElseThrow(() -> new EntitieNonTrouveeException("Commande non trouvée."));
 		
 		Commentaire commentaire = new Commentaire();
 		commentaire.setDate(OffsetDateTime.now());
