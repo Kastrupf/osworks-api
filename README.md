@@ -1,10 +1,13 @@
 <h1 align="center">OSWorks</h1>
 
 <p align="center">
-   <img alt="Spring" title="Spring" width="100" height="80" src=".github/logoSpring.png" />
-   <img alt="Jakarta" title="Jakarta" width="100" height="80" src=".github/logoJakarta.png" />
-   <img alt="MySQL" title="MySQL" width="100" height="80" src=".github/logoMySQL.png" />
-   <img alt="Flyway" title="Flyway" width="100" height="80" src=".github/logoFlyway.png" />
+   <img alt="Java" title="Java" width="90" height="60" src=".github/logoJava.png" />
+   <img alt="Maven" title="Maven" width="90" height="60" src=".github/logoMaven.png" />
+   <img alt="Spring" title="Spring" width="90" height="60" src=".github/logoSpring.png" />
+   <img alt="Jakarta" title="Jakarta" width="90" height="60" src=".github/logoJakarta.png" />
+   <img alt="MySQL" title="MySQL" width="90" height="60" src=".github/logoMySQL.png" />
+   <img alt="ApacheTomcat" title="ApacheTomcat" width="90" height="60" src=".github/logoApacheTomcat.png" />
+   <img alt="Flyway" title="Flyway" width="90" height="60" src=".github/logoFlyway.png" />
 </p>
 
 <p> API type : service Web </p>
@@ -30,12 +33,14 @@ Ce projet a été développé avec les technologies suivantes:
 - [Spring](https://spring.io/)
   - [Spring Framework](https://spring.io/projects/spring-framework/)
   - [Spring Data JPA](https://spring.io/projects/spring-data-jpa/)
-  - [Spring Boot](https://spring.io/projects/spring-boot/)
+  - [Spring Boot](https://spring.io/projects/spring-boot/) - v2.3.4
 
 - [Jakarta Persistence](https://jakarta.ee/projects/)
 - [Flyway](https://flywaydb.org/)
 - [Insomnia](https://insomnia.rest/download/)
-- [MySQL](https://www.mysql.com/)
+- [MySQL](https://www.mysql.com/) - MySQL Community Server v8.0.22
+- [Apache Tomcat](https://tomcat.apache.org/) - v9.0
+- [ModelMapper](https://modelmapper.org/)
   
 
 ## 💻 Projet
@@ -51,13 +56,12 @@ Ce projet a été développé avec les technologies suivantes:
 
 ## ⚡ Environnement
 
-Pour développer des applications serveur avec Java, vous avez besoin d'installer le [OpenJDK](https://jdk.java.net/).
-
+Pour développer des applications serveur avec Java, vous avez besoin d'installer le [OpenJDK](https://jdk.java.net/). J'ai utilisé Java version 11.
 Pour le développement d'API:  [Spring Tool Suite](https://spring.io/tools/) ou IDE de votre choix, l'importation du fichier généré par le service [Spring initializr](https://start.spring.io/).
 
 Pour tester les requêtes / réponses générées par l'API: [Postman](https://www.postman.com/downloads/) ou [Insominia](https://insomnia.rest/download/).
 
-Pour la persistance des données: [MySQL Server](https://dev.mysql.com/downloads/mysql/).
+Pour la persistance des données: [MySQL Server](https://dev.mysql.com/downloads/mysql/). J'ai choisi MySQL Community Server v8.0.22
 Pour l'administration du serveur MySQL: e [MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
 D'abord, il faut configurer la connexion avec la base de données. Properties se trouve dans le fichier : /src/main/resources/application.properties.
